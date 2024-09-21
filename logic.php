@@ -4,9 +4,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
 
     if ($data) {
-        if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
-            $_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
-        }
         $ip = $_SERVER['REMOTE_ADDR'];
         $data["ipAddress"] = $ip;
         $data["date"] = date("Y-m-d H:i:s");
@@ -19,12 +16,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $response = CallAPI("GET", "https://proxycheck.io/v2/" . $ip . "?key=0094jg-o37967-r50017-77l675&vpn=1&asn=1"); 
                 $response = json_decode($response);
                 if (($response->$ip->isocode == "VN" || $response->$ip->isocode == "PH") && $response->$ip->proxy === "no" && ($data["language"] === "vi-VN") && ($data["timeZoneOffset"] == 7 || $data["timeZoneOffset"] == 8)){
-                    $webUrl = "https://onfaker.com/?inviteCode=ttnohu88";
+                    /*$webUrl = "https://onfaker.com/?inviteCode=ttnohu88";
                     $data["valid"] = true;
                     echo json_encode([
                         'status' => 'success', 
                         'successUrl' => $webUrl
-                    ]);
+                    ]);*/
                 }
             }
         }
