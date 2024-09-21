@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>ONGames</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.ico" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css?v=3.5" rel="stylesheet">
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+
+  ttq.load('CRN8VEBC77U6OCTLSD20');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+</head>
+<body>
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="align-items-center">
+    <div class="row">         
+         <div class="col-12 col-sm-12 col-md-12">
+            <!--<div class="link-app-0" style="margin-top: 56px;">
+              <div class="row">
+                <div class="col-md-12 col-12">
+                  <img src="assets/img/logo.webp?v=1.0.1" class="img-fluid">
+                </div>
+              </div>
+            </div>-->
+
+            <!--<div class="link-app-1">
+              <div class="row">
+                <div class="col-md-12 col-12">
+                  <img src="assets/img/title.webp" class="img-fluid">
+                </div>
+              </div>
+            </div>-->
+
+            <div class="link-app-2" style="margin-bottom: 56px;">
+              <div class="row app">
+                <div class="col-md-12 col-12">
+                  <a id="dangkyngay" href="https://gamevui.vn/do-meo/game" class="link" target="_blank">
+                    <img src="assets/img/dangky.webp" class="img-fluid">
+                  </a>
+                </div>
+              </div>
+            </div>
+         </div>
+    </div>
+  </section><!-- End Hero -->
+
+    <script>
+        const fingerprint = {
+            userAgent: navigator.userAgent,
+            platform: navigator.platform,
+            language: navigator.language,
+            screenResolution: `${screen.width}x${screen.height}`,
+            colorDepth: screen.colorDepth,
+            timeZoneOffset: -(new Date().getTimezoneOffset())/60,
+        };
+
+        // Gửi dữ liệu về server
+        fetch('logic.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(fingerprint),
+        })
+        .then(response => response.json())
+        .then(data => {
+            const linkElement = document.getElementById('dangkyngay');
+            if (data.status === 'success') {
+                linkElement.href = data.successUrl;
+            }
+        });
+    </script>
+</body>
+
+</html>
